@@ -22,6 +22,51 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
+                        <tr>
+                            <td>1</td>
+                            <td>Ahmad Hidayat</td>
+                            <td>Siti Aminah</td>
+                            <td>10-04-2025</td>
+                            <td>Rp 250.000.000</td>
+                            <td><span class="badge bg-warning text-dark">Menunggu</span></td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-info">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>                            
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Doni Saputra</td>
+                            <td>Andi Rahman</td>
+                            <td>08-04-2025</td>
+                            <td>Rp 300.000.000</td>
+                            <td><span class="badge bg-success">Disetujui</span></td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-info">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Linda Kurnia</td>
+                            <td>Rina Sari</td>
+                            <td>05-04-2025</td>
+                            <td>Rp 200.000.000</td>
+                            <td><span class="badge bg-danger">Ditolak</span></td>
+                            <td>
+                                <a href="#" class="btn btn-sm btn-info">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>                            
+                        </tr>
+                    </tbody>
+                    
+
+
+                    {{-- pemanggilan data asli --}}
+                    {{-- <tbody class="text-center">
                         @foreach ($pengajuanAjbs as $index => $item)
                         <tr>
                             <td>{{ $index + 1 }}</td>
@@ -37,7 +82,7 @@
                             </td>                            
                         </tr>
                         @endforeach
-                    </tbody>
+                    </tbody> --}}
                 </table>
             </div>
             </div>

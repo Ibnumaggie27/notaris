@@ -1,0 +1,134 @@
+/* daftar.css */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #0061ff, #60efff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+h4.text-center {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Tombol custom */
+.btn-primary-custom {
+    background-color: #0061ff;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary-custom:hover {
+    background-color: #004bcc;
+}
+
+/* Error alert */
+.alert-danger {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+/* Link login */
+.daftar {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.daftar a {
+    color: #0061ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.daftar a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive untuk layar HP */
+@media (max-width: 576px) {
+    .container {
+        padding: 50px 20px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .card {
+        margin: auto;
+        padding: 150px 30px;
+        max-width: 95%;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    h4.text-center {
+        font-size: 50px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .form-label {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .form-control {
+        font-size: 22px;
+        padding: 16px 14px;
+        border-radius: 12px;
+    }
+
+    .btn-primary-custom {
+        font-size: 40px;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .alert-danger {
+        font-size: 20px;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .login {
+        font-size: 40px;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .login a {
+        font-size: 40px;
+        font-weight: 600;
+    }
+}

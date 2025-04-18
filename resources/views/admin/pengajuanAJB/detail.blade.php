@@ -162,8 +162,6 @@
                     <strong>Status:</strong>
                     @if(auth()->user()->role !== 'superAdmin')
                         <select name="status" class="form-select mt-2">
-                            <option value="pengajuan" {{ $pengajuanAjb->status == 'pengajuan' ? 'selected' : '' }}>Pengajuan</option>
-                            <option value="proses" {{ $pengajuanAjb->status == 'proses' ? 'selected' : '' }}>Proses</option>
                             <option value="selesai" {{ $pengajuanAjb->status == 'selesai' ? 'selected' : '' }}>Selesai</option>
                             <option value="tolak" {{ $pengajuanAjb->status == 'tolak' ? 'selected' : '' }}>Tolak</option>
                         </select>

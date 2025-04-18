@@ -1,0 +1,32 @@
+.card-body {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+#ajbChart {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px; /* Bisa disesuaikan sesuai kebutuhan */
+}
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* tinggi default */
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: auto !important;
+    min-width: 500px; /* supaya label tidak tumpuk kalau terlalu banyak */
+}
+@media (max-width: 768px) {
+    .chart-container {
+        height: 250px; /* tinggi lebih kecil untuk mobile */
+        overflow-x: auto; /* agar bisa scroll kalau chart terlalu lebar */
+    }
+
+    canvas {
+        min-width: 600px; /* kalau label banyak, tetap bisa ke-scroll */
+    }
+}

@@ -67,22 +67,7 @@
                     <span>Laporan</span>
                 </a>
             </li>
-            <li
-                class="sidebar-item active ">
-                <a href="{{ route('admin.pengProfile') }}" class='sidebar-link'>
-                    <i class="bi bi-grid-fill"></i>
-                    <span>Pengatuan Profile</span>
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="sidebar-link btn btn-link" style="text-decoration: none; color: inherit;">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span>Logout</span>
-                    </button>
-                </form>
-            </li>
+            
 </ul>
 </div>
 </div>

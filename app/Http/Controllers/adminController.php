@@ -16,6 +16,7 @@ class adminController extends Controller
     public function indexadmin()
     {
         Carbon::setLocale('id');
+        $user = Auth::user();
 
     $startDate = Carbon::now()->subWeeks(6)->startOfWeek(); // 7 minggu termasuk minggu ini
     $endDate = Carbon::now()->endOfWeek();
@@ -65,18 +66,16 @@ class adminController extends Controller
 
     return view('admin.index', [
         'weeks' => $weeks,
-        'chartData' => $chartData
+        'chartData' => $chartData,
+        'user' => $user,
     ]);
         return view('admin.index');
     }
-    public function indexUser()
-    {
-        return view('user.index');
-    }
     public function dataPJB()
     {
-        $pengajuanAjbs = PengajuanAjb::all(); // Ambil semua data dari tabel pengajuan_ajbs
-        return view('admin.dataPJB', compact('pengajuanAjbs'));
+        $pengajuanAjbs = PengajuanAjb::all();
+        $user = Auth::user(); // Ambil semua data dari tabel pengajuan_ajbs
+        return view('admin.dataPJB', compact('pengajuanAjbs','user'));
     }
     public function manUser()
     {
@@ -85,8 +84,9 @@ class adminController extends Controller
     }
     public function laporan()
     {
-        $pengajuanAjbs = PengajuanAjb::all(); // Ambil semua data dari tabel pengajuan_ajbs
-        return view('admin.laporan', compact('pengajuanAjbs'));
+        $pengajuanAjbs = PengajuanAjb::all();
+        $user = Auth::user(); // Ambil semua data dari tabel pengajuan_ajbs
+        return view('admin.laporan', compact('pengajuanAjbs', 'user'));
     }
     public function pengProfile()
     {
@@ -119,7 +119,42 @@ public function store(Request $request)
 
     return redirect()->route('admin.manUser')->with('success', 'User admin berhasil ditambahkan!');
 }
+public function editprofile()
+    {
+        $user = Auth::user();
+        return view('admin.edit', compact('user'));
+    }
 
+    public function updateprofile(Request $request)
+    {
+        $user = User::findOrFail(Auth::id());
+
+
+        $request->validate([
+            'nik' => 'required|numeric|unique:users,nik,' . $user->id,
+            'nama' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        $user->nik = $request->nik;
+        $user->nama = $request->nama;
+        $user->email = $request->email;
+
+        // Update foto jika ada
+        if ($request->hasFile('foto')) {
+            if ($user->foto && Storage::exists('public/' . $user->foto)) {
+                Storage::delete('public/' . $user->foto);
+            }
+
+            $fotoPath = $request->file('foto')->store('foto-profil', 'public');
+            $user->foto = $fotoPath;
+        }
+
+        $user->save();
+
+        return redirect()->route('admin.edit')->with('success', 'Profil berhasil diperbarui.');
+    }
 
 public function edit($id)
 {
@@ -169,6 +204,13 @@ public function update(Request $request, $id)
 public function detail($id)
 {
     $pengajuanAjb = PengajuanAjb::with(['user', 'objekTanah', 'berkas', 'penjual', 'pembeli', 'saksi'])->findOrFail($id);
+    $user = auth()->user();
+    if ($user->role == 'admin') {
+        if ($pengajuanAjb->status == 'pengajuan') {
+            $pengajuanAjb->status = 'proses';
+            $pengajuanAjb->save();
+        }
+    }
     return view('admin.pengajuanAJB.detail', compact('pengajuanAjb'));
 }
 
@@ -181,7 +223,7 @@ public function edit1($id)
 public function update1(Request $request, $id)
 {
     $request->validate([
-        'status' => 'required|in:pengajuan,proses,selesai,tolak',
+        'status' => 'required|in:selesai,tolak',
     ]);
 
     $pengajuanAjb = PengajuanAjb::findOrFail($id);
@@ -190,7 +232,5 @@ public function update1(Request $request, $id)
 
     return redirect()->back()->with('success', 'Status berhasil diperbarui.');
 }
-
-
 
 }

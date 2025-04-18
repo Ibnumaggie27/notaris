@@ -1,4 +1,4 @@
-@extends('user.layout.app')
+@extends('admin.layout.app')
 
 @section('content')
 <div class="container mt-4">
@@ -8,7 +8,7 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <form action="{{ route('user.update') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">

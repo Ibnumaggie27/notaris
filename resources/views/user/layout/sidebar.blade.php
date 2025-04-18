@@ -3,7 +3,7 @@
 <div class="sidebar-header position-relative">
 <div class="d-flex justify-content-between align-items-center">
     <div class="logo">
-        <a href="{{ route('user.index') }}"><img src="./assets/compiled/svg/logo.svg" alt="Logo" srcset=""></a>
+        <a href="{{ route('user.index') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="logo" style="width: 100px; height: auto;"></a>
     </div>
     <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -48,22 +48,6 @@
             <span>Pembuatan Surat AJB</span>
         </a>
     </li>
-    <li
-        class="sidebar-item active ">
-        <a href="{{ route('user.profile') }}" class='sidebar-link'>
-            <i class="bi bi-grid-fill"></i>
-            <span>Profile</span>
-        </a>
-    </li>
-            <li class="sidebar-item">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="sidebar-link btn btn-link" style="text-decoration: none; color: inherit;">
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span>Logout</span>
-                    </button>
-                </form>
-            </li>
 </ul>
 </div>
 </div>
