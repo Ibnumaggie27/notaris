@@ -58,7 +58,9 @@ class userController extends Controller
     }
     public function tambah()
     {
-        return view('user.ajb.AJB');
+        $user = Auth::user();
+
+        return view('user.ajb.AJB', compact('user'));
     }
 
     public function sajb()

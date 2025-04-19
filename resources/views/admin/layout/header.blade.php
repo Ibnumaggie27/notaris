@@ -4,6 +4,13 @@
     </a>
     <nav class="navbar navbar-expand navbar-light navbar-top">
         <div class="container-fluid">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                </ol>
+            </nav>
             <a href="#" class="burger-btn d-block">
             </a>
             <div class="dropdown">

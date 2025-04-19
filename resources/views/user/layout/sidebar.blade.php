@@ -3,7 +3,7 @@
 <div class="sidebar-header position-relative">
 <div class="d-flex justify-content-between align-items-center">
     <div class="logo">
-        <a href="{{ route('user.index') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="logo" style="width: 100px; height: auto;"></a>
+        <a href="{{ route('user.index') }}"><img src="{{ asset('assets/img/logo1.png') }}" alt="logo" style="width: 100px; height: auto;"></a>
     </div>
     <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -40,14 +40,33 @@
 </div>
 <div class="sidebar-menu">
 <ul class="menu">
-    <li class="sidebar-title">Menu</li>
+    <li class="side-title">Menu</li>
+    <li class="side-item active ">
+        <a href="{{ route('user.index') }}" class="sidebar-link">
+            <i class="bi bi-grid-fill"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
     <li
-        class="sidebar-item active ">
+        class="side-item active ">
         <a href="{{ route('user.riwayat') }}" class='sidebar-link'>
             <i class="bi bi-grid-fill"></i>
             <span>Pembuatan Surat AJB</span>
         </a>
     </li>
+    <li class="side-item active">
+        <a href="{{ route('admin.manUser') }}" class='sidebar-link'>
+            <i class="bi bi-grid-fill"></i>
+            <span>Manajemen User</span>
+        </a>
+    </li>
+    <li
+                class="side-item active ">
+                <a href="{{ route('admin.laporan') }}" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Laporan</span>
+                </a>
+            </li>
 </ul>
 </div>
 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penjual;
+use App\Models\User;
 use App\Models\Pembeli;
 use App\Models\ObjekTanah;
 use App\Models\BerkasAjb;
@@ -15,12 +16,13 @@ class AjbController extends Controller
 {
     public function showForm(Request $request, $step = null)
     {
+        $user = Auth::user();
         // Pastikan step default selalu 1 jika tidak ada
         $step = $step ?? $request->session()->get('step', 1);
         $step = intval($step);
         $request->session()->put('step', $step);
         $ajbData = $request->session()->get('ajb_data', []);
-        return view('user.ajb.AJB', compact('step', 'ajbData'));
+        return view('user.ajb.AJB', compact('step', 'ajbData', 'user'));
     }
 
     public function handleForm(Request $request)

@@ -23,52 +23,72 @@
                                         <th>aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @php
-                                        $dummyData = [
-                                            [
-                                                'nama_pembeli' => 'Rina Andriani',
-                                                'nama_penjual' => 'Budi Santoso',
-                                                'tanggal_pengajuan' => '2025-04-10',
-                                                'harga_transaksi' => 250000000,
-                                                'status' => 'Disetujui',
-                                            ],
-                                            [
-                                                'nama_pembeli' => 'Agus Saputra',
-                                                'nama_penjual' => 'Siti Nurhaliza',
-                                                'tanggal_pengajuan' => '2025-04-11',
-                                                'harga_transaksi' => 175000000,
-                                                'status' => 'Menunggu',
-                                            ],
-                                            [
-                                                'nama_pembeli' => 'Lina Marlina',
-                                                'nama_penjual' => 'Ujang Komar',
-                                                'tanggal_pengajuan' => '2025-04-12',
-                                                'harga_transaksi' => 300000000,
-                                                'status' => 'Ditolak',
-                                            ],
-                                        ];
-                                    @endphp
-        
-                                    @foreach ($dummyData as $index => $ajb)
-                                        <tr class="text-center">
-                                            <td>{{ $index + 1 }}</td>
-                                            <td>{{ $ajb['nama_pembeli'] }}</td>
-                                            <td>{{ $ajb['nama_penjual'] }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($ajb['tanggal_pengajuan'])->format('d-m-Y') }}</td>
-                                            <td>Rp {{ number_format($ajb['harga_transaksi'], 0, ',', '.') }}</td>
-                                            <td>{{ $ajb['status'] }}</td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm btn-danger me-1" title="Hapus">
-                                                    <i class="bi bi-trash"></i>
+                                <tbody class="text-center">
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Ahmad Hidayat</td>
+                                        <td>Siti Aminah</td>
+                                        <td>10-04-2025</td>
+                                        <td>Rp 250.000.000</td>
+                                        <td><span class="badge bg-warning text-dark">Menunggu</span></td>
+                                        <td>
+                                            <div class="d-flex gap-1 justify-content-center">
+                                                <a href="#" class="btn btn-sm btn-warning" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-sm btn-danger" title="Hapus">
+                                                    <i class="fas fa-trash"></i>
                                                 </a>
                                                 <a href="#" class="btn btn-sm btn-success" title="Download">
-                                                    <i class="bi bi-download"></i>
+                                                    <i class="fas fa-download"></i>
                                                 </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                            </div>
+                                        </td>                               
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Doni Saputra</td>
+                                        <td>Andi Rahman</td>
+                                        <td>08-04-2025</td>
+                                        <td>Rp 300.000.000</td>
+                                        <td><span class="badge bg-success">Disetujui</span></td>
+                                        <td>
+                                            <div class="d-flex gap-1 justify-content-center">
+                                                <a href="#" class="btn btn-sm btn-warning" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-sm btn-danger" title="Hapus">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-sm btn-success" title="Download">
+                                                    <i class="fas fa-download"></i>
+                                                </a>
+                                            </div>
+                                        </td>                              
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Linda Kurnia</td>
+                                        <td>Rina Sari</td>
+                                        <td>05-04-2025</td>
+                                        <td>Rp 200.000.000</td>
+                                        <td><span class="badge bg-danger">Ditolak</span></td>
+                                        <td>
+                                            <div class="d-flex gap-1 justify-content-center">
+                                                <a href="#" class="btn btn-sm btn-warning" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-sm btn-danger" title="Hapus">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-sm btn-success" title="Download">
+                                                    <i class="fas fa-download"></i>
+                                                </a>
+                                            </div>
+                                        </td>                                                                     
+                                    </tr>
                                 </tbody>
+                                
 
                                 {{-- pemanggilan data asli --}}
                                 {{-- <tbody>

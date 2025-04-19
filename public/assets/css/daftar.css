@@ -44,6 +44,9 @@ h4.text-center {
     background-color: #0061ff;
     color: #ffffff;
     border: none;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 12px;
 }
 
 .btn-primary-custom:hover {

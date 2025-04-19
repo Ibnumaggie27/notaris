@@ -202,7 +202,7 @@
                 <div class="form-group">
                     <label for="harga_transaksi_tanah">Harga Transaksi Tanah</label>
                     <input type="text" name="harga_transaksi_tanah" id="harga_transaksi_tanah" class="form-control" 
-                           value="{{ old('harga_transaksi_tanah', $ajbData['objek']['harga_transaksi_tanah'] ?? '') }}"
+                           value="{{ old('harga_transaksi_tanah', $ajbData['harga_transaksi_tanah'] ?? '') }}"
                            oninput="formatRupiah(this)">
                 </div>
             </div>                        

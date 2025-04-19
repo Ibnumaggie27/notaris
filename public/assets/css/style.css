@@ -1,32 +1,123 @@
+/* 🌞 Tema Terang */
+.side-item.active .sidebar-link {
+    background-color: #ff6600; /* Oranye untuk tema terang */
+    border-radius: 6px;
+    color: #cac8c8;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.side-item.active .sidebar-link i,
+.side-item.active .sidebar-link span {
+    color: #cac8c8; /* Warna icon dan teks untuk kontras dengan background oranye */
+}
+
+/* Hover untuk sidebar-link (baik aktif maupun tidak) */
+.sidebar-link:hover {
+    background-color: #e65500; /* Lebih gelap dari oranye saat hover */
+    color: #cac8c8;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-link:hover i,
+.sidebar-link:hover span {
+    color: #ffffff; /* Warna teks dan icon saat hover */
+}
+
+/* 🌚 Tema Gelap */
+@media (prefers-color-scheme: dark) {
+    .side-item.active .sidebar-link {
+        background-color: #0061ff; /* Cyan untuk tema gelap */
+        color: #911313; /* Warna teks lebih gelap */
+    }
+
+    .side-item.active .sidebar-link i,
+    .side-item.active .sidebar-link span {
+        color: #ffffff; /* Warna ikon dan teks lebih gelap */
+    }
+
+    .sidebar-link:hover {
+        background-color: #0011ff; /* Hijau muda saat hover pada tema gelap */
+        color: #ffffff;
+    }
+
+    .sidebar-link:hover i,
+    .sidebar-link:hover span {
+        color: #ffffff; /* Teks dan icon berwarna putih saat hover */
+    }
+}
+
+/* CARD & CHART STYLE */
 .card-body {
     position: relative;
     width: 100%;
     height: auto;
+    overflow-x: auto; /* Agar chart tidak terpotong */
 }
 
 #ajbChart {
     width: 100% !important;
     height: auto !important;
-    max-height: 400px; /* Bisa disesuaikan sesuai kebutuhan */
+    max-height: 400px;
 }
+
 .chart-container {
     position: relative;
     width: 100%;
-    height: 300px; /* tinggi default */
+    height: 300px; /* Sesuaikan jika perlu */
+    overflow: hidden; /* Hindari scrollbar */
 }
 
+/* Canvas untuk chart */
 .chart-container canvas {
     width: 100% !important;
-    height: auto !important;
-    min-width: 500px; /* supaya label tidak tumpuk kalau terlalu banyak */
+    height: 100% !important;
+    min-width: unset; /* Hindari memaksa lebar minimum */
 }
+
+/* Responsive Chart untuk Mobile dan Tablet */
 @media (max-width: 768px) {
     .chart-container {
-        height: 250px; /* tinggi lebih kecil untuk mobile */
-        overflow-x: auto; /* agar bisa scroll kalau chart terlalu lebar */
+        height: 250px;
     }
 
     canvas {
-        min-width: 600px; /* kalau label banyak, tetap bisa ke-scroll */
+        min-width: 600px;
     }
+}
+
+@media (max-width: 480px) {
+    .chart-container {
+        height: 220px;
+    }
+
+    canvas {
+        min-width: 450px;
+    }
+}
+
+/* TIMELINE */
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+    }
+}
+
+.step {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.step i {
+    margin-bottom: 20px;
 }

@@ -12,7 +12,7 @@
     <div class="container">
         <div class="card">
             <img src="{{ asset('assets/img/logo.png') }}" alt="Logo" class="logo">
-            <h4 class="text-center mb-3">Login</h4>
+            <h4 class="text-center mb-3">Selamat Datang</h4>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul class="mb-0">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="btn btn-primary-custom w-100">Login</button>
+                <button type="submit" class="btn-primary-custom w-100">Login</button>
                 <div class="daftar mt-3 text-center">
                     Belum punya akun? <a href="{{ route('register') }}">Daftar</a>
                 </div>

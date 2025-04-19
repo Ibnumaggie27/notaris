@@ -1,72 +1,63 @@
 @extends('user.layout.app')
 
 @section('content')
+
 <div class="row">
-    <div class="col-6 col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body px-4 py-4-5">
-                <div class="row">
-                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                        <div class="stats-icon purple mb-2">
-                            <i class="fa-solid fa-file"></i>
-                        </div>
+    <!-- Kolom 8 untuk Card Timeline -->
+    <div class="col-md-6">
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card h-100 p-3">
+                    <div class="card-body mt-5 text-center text-primary">
+                        <i class="fas fa-file fa-3x"></i>
+                        <div class="fs-4">120.000 Pengajuan</div>
                     </div>
-                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                        <h6 class="text-muted font-semibold">jumlah Pengajuan</h6>
-                        <h6 class="font-extrabold mb-0">112.000</h6>
-                    </div>
-                </div> 
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col-6 col-lg-3 col-md-6">
-        <div class="card"> 
-            <div class="card-body px-4 py-4-5">
-                <div class="row">
-                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                        <div class="stats-icon blue mb-2">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
+    
+            <!-- Card 2 -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card h-100 p-3">
+                    <div class="card-body mt-5 text-center text-warning">
+                        <i class="fas fa-hourglass-half fa-3x"></i>
+                        <div class="fs-4">120.000 Proses</div>
                     </div>
-                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                        <h6 class="text-muted font-semibold">jumlah Yang di Stujui</h6>
-                        <h6 class="font-extrabold mb-0">183.000</h6>
+                </div>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card h-100 p-3">
+                    <div class="card-body mt-5 text-center text-success">
+                        <i class="fas fa-check-circle fa-3x"></i>
+                        <div class="fs-4">120.000 Diterima</div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card h-100 p-3">
+                    <div class="card-body mt-5 text-center text-danger">
+                        <i class="fas fa-times-circle fa-3x"></i>
+                        <div class="fs-4">120.000 Ditolak</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-6 col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body px-4 py-4-5">
-                <div class="row">
-                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                        <div class="stats-icon green mb-2">
-                            <i class="fas fa-hourglass-half"></i>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                        <h6 class="text-muted font-semibold">Jumlah Dalam Proses</h6>
-                        <h6 class="font-extrabold mb-0">80.000</h6>
-                    </div>
-                </div>
+    
+    
+
+    <!-- Kolom 4 untuk Chart -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h4>Statistik Pengajuan</h4>
             </div>
-        </div>
-    </div>
-    <div class="col-6 col-lg-3 col-md-6">
-        <div class="card">
-            <div class="card-body px-4 py-4-5">
-                <div class="row">
-                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                        <div class="stats-icon red mb-2">
-                            <i class="fas fa-times-circle"></i>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                        <h6 class="text-muted font-semibold">Jumlah Yang di Tolak</h6>
-                        <h6 class="font-extrabold mb-0">112</h6>
-                    </div>
-                </div>
+            <div style="width: 100%; max-width: 350px; height: 350px; margin: auto;">
+                <canvas id="pengajuanPieChart"></canvas>
             </div>
         </div>
     </div>
@@ -79,15 +70,14 @@
                         <div class="card-body">
                             <!-- table contextual / colored -->
                             <div class="table-responsive">
-                                <table class="table" id="table1">
-                                    <thead>
+                                <table class="table">
+                                    <thead class="text-center">
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Pembeli</th>
                                             <th>Nama Penjual</th>
                                             <th>Tanggal Pengajuan</th>
                                             <th>Harga Transaksi</th>
-                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -98,21 +88,18 @@
                                                     'nama_penjual' => 'Budi Santoso',
                                                     'tanggal_pengajuan' => '2025-04-10',
                                                     'harga_transaksi' => 250000000,
-                                                    'status' => 'Disetujui',
                                                 ],
                                                 [
                                                     'nama_pembeli' => 'Agus Saputra',
                                                     'nama_penjual' => 'Siti Nurhaliza',
                                                     'tanggal_pengajuan' => '2025-04-11',
                                                     'harga_transaksi' => 175000000,
-                                                    'status' => 'Menunggu',
                                                 ],
                                                 [
                                                     'nama_pembeli' => 'Lina Marlina',
                                                     'nama_penjual' => 'Ujang Komar',
                                                     'tanggal_pengajuan' => '2025-04-12',
                                                     'harga_transaksi' => 300000000,
-                                                    'status' => 'Ditolak',
                                                 ],
                                             ];
                                         @endphp
@@ -124,7 +111,6 @@
                                                 <td>{{ $ajb['nama_penjual'] }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($ajb['tanggal_pengajuan'])->format('d-m-Y') }}</td>
                                                 <td>Rp {{ number_format($ajb['harga_transaksi'], 0, ',', '.') }}</td>
-                                                <td>{{ $ajb['status'] }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -149,5 +135,101 @@
         </section>
     </div>
 </div>
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Data Dummy
+    const dataDummy = [
+        { status: 'Disetujui' },
+        { status: 'Disetujui' },
+        { status: 'Ditolak' },
+        { status: 'Menunggu' },
+        { status: 'Disetujui' },
+        { status: 'Menunggu' },
+        { status: 'Ditolak' },
+        { status: 'Menunggu' },
+        { status: 'Disetujui' }
+    ];
+
+    let disetujui = 0;
+    let ditolak = 0;
+    let menunggu = 0;
+
+    // Looping untuk menghitung status
+    dataDummy.forEach(item => {
+        if (item.status === 'Disetujui') disetujui++;
+        else if (item.status === 'Ditolak') ditolak++;
+        else if (item.status === 'Menunggu') menunggu++;
+    });
+
+    // Fungsi untuk mendeteksi tema (gelap atau terang)
+    function getLabelColor() {
+        return document.body.classList.contains('dark-theme') ? '#ffffff' : '#000000';
+    }
+
+    // Ambil context dari chart
+    const ctx = document.getElementById('pengajuanPieChart').getContext('2d');
+    const pengajuanPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Disetujui', 'Menunggu', 'Ditolak'],
+            datasets: [{
+                label: 'Jumlah Pengajuan',
+                data: [disetujui, menunggu, ditolak],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.7)', // biru
+                    'rgba(255, 206, 86, 0.7)', // kuning
+                    'rgba(255, 99, 132, 0.7)'  // merah
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(255, 99, 132, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: getLabelColor() // Menggunakan fungsi getLabelColor untuk mendeteksi tema
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let total = disetujui + menunggu + ditolak;
+                            let percentage = (context.parsed / total * 100).toFixed(1) + '%';
+                            return context.label + ': ' + context.parsed + ' (' + percentage + ')';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Fungsi untuk memperbarui tema saat tema berubah
+    function updateChartTheme() {
+        pengajuanPieChart.options.plugins.legend.labels.color = getLabelColor();
+        pengajuanPieChart.update();
+    }
+
+    // Memantau perubahan tema dengan event listener (misalnya dengan toggle tema)
+    const themeToggleButton = document.querySelector('#theme-toggle'); // Pastikan ada tombol toggle tema
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', function() {
+            // Tunggu sebentar setelah toggle, baru update chart
+            setTimeout(updateChartTheme, 300);
+        });
+    }
+
+</script>
+@endpush
+
+
+
 
 @endsection

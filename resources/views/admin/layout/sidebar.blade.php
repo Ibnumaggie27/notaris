@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between align-items-center">
     <div class="logo">
         <a href="{{ route('admin.indexadmin') }}">
-            <img src="{{ asset('assets/img/logo.png') }}" alt="logo" style="width: 100px; height: auto;">
+            <img src="{{ asset('assets/img/logo1.png') }}" alt="logo" style="width: 100px; height: auto;">
         </a>
     </div>    
     <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -43,8 +43,14 @@
 <div class="sidebar-menu">
 <ul class="menu">
     <li class="sidebar-title">Menu</li>
+    <li class="side-item active ">
+        <a href="{{ route('admin.indexadmin') }}" class="sidebar-link">
+            <i class="bi bi-grid-fill"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
             <li
-                class="sidebar-item active ">
+                class="side-item active ">
                 <a href="{{ route('admin.dataPJB') }}" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Data Pengajuan AJB</span>
@@ -52,7 +58,7 @@
             </li>
             @auth
                     @if(auth()->user()->role === 'superAdmin')
-                        <li class="sidebar-item active">
+                        <li class="side-item active">
                             <a href="{{ route('admin.manUser') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Manajemen User</span>
@@ -61,7 +67,7 @@
                     @endif
                 @endauth
             <li
-                class="sidebar-item active ">
+                class="side-item active ">
                 <a href="{{ route('admin.laporan') }}" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Laporan</span>

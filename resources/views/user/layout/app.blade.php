@@ -15,6 +15,7 @@
   <link href="{{ asset('assets/compiled/css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/compiled/css/app-dark.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/compiled/css/iconly.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
@@ -59,6 +60,7 @@
         <script src="{{ asset('assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
         <script src="{{ asset('assets/static/js/pages/dashboard.js') }}"></script>
         @yield('scripts')
+        @stack('scripts')
 </body>
 
 </html>
